@@ -58,7 +58,8 @@ public class DeviceCamera : MonoBehaviour
     {
         if (!camAvailable)
             return;
-
+        if (!choosedCam)
+            return;
         float ratio = (float)choosedCam.width / (float)choosedCam.height;
         fitter.aspectRatio = ratio;
 
