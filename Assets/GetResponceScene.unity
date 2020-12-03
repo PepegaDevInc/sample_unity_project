@@ -123,6 +123,85 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &102594472
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 102594473}
+  - component: {fileID: 102594475}
+  - component: {fileID: 102594474}
+  m_Layer: 5
+  m_Name: ResponseContent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &102594473
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102594472}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 632160795}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -275.25003, y: -37.315002}
+  m_SizeDelta: {x: 550.49994, y: 444.37}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &102594474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102594472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: ResponseContent
+--- !u!222 &102594475
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102594472}
+  m_CullTransparentMesh: 0
 --- !u!1 &477582846
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,7 +215,7 @@ GameObject:
   - component: {fileID: 477582849}
   - component: {fileID: 477582848}
   m_Layer: 5
-  m_Name: GetResponceButton
+  m_Name: GetResponseButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -275,6 +354,7 @@ RectTransform:
   m_Children:
   - {fileID: 1449398868}
   - {fileID: 477582847}
+  - {fileID: 102594473}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -504,7 +584,7 @@ GameObject:
   - component: {fileID: 1449398867}
   - component: {fileID: 1449398866}
   m_Layer: 5
-  m_Name: TextField
+  m_Name: ResponseStatus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -523,7 +603,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -537,13 +617,13 @@ MonoBehaviour:
     m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: OutputField
+  m_Text: ResponseStatus
 --- !u!222 &1449398867
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -568,8 +648,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -275.25, y: 129.75}
-  m_SizeDelta: {x: 550.4999, y: 259.4978}
+  m_AnchoredPosition: {x: -275.25, y: 222.2}
+  m_SizeDelta: {x: 550.4999, y: 74.66226}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1562829571
 GameObject:
@@ -582,7 +662,7 @@ GameObject:
   - component: {fileID: 1562829573}
   - component: {fileID: 1562829572}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: ResponseScript
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -600,8 +680,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a192d4eef68fe848962ef8b6e007a1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TextField: {fileID: 1449398865}
+  ResponseStatusField: {fileID: 1449398865}
   GetResponceButton: {fileID: 477582848}
+  ResponseContentField: {fileID: 102594472}
 --- !u!4 &1562829573
 Transform:
   m_ObjectHideFlags: 0
@@ -686,7 +767,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: GetResponceButton
+  m_Text: GetResponseButton
 --- !u!222 &2107999234
 CanvasRenderer:
   m_ObjectHideFlags: 0
