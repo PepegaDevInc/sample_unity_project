@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,7 +23,7 @@ public class RequestScript : MonoBehaviour
     // Performs simple request
     public void SendRequest()
     {
-        WebRequest request = WebRequest.Create("https://httpbin.org/anything");
+        WebRequest request = WebRequest.Create("http://91.122.34.182/get_system/test_system/");
         request.Credentials = CredentialCache.DefaultCredentials;
         WebResponse response = request.GetResponse();
         //Fetching status
@@ -36,10 +37,42 @@ public class RequestScript : MonoBehaviour
         while (readStream.Peek() >= 0)
         {
             string line = readStream.ReadLine();
-            ResponseContentField.GetComponent<Text>().text = ResponseContentField.GetComponent<Text>().text + line + "\n";
+            ResponseContentField.GetComponent<Text>().text = ResponseContentField.GetComponent<Text>().text + JsonUtil.Beautify(line);
         }
         ResponseContentField.GetComponent<Text>().alignment = TextAnchor.MiddleLeft;
         response.Close();
         readStream.Close();
+    }
+
+    public static class JsonUtil
+    {
+        public static string Beautify(string json)
+        {
+            const int indentWidth = 4;
+            const string pattern = "(?>([{\\[][}\\]],?)|([{\\[])|([}\\]],?)|([^{}:]+:)([^{}\\[\\],]*(?>([{\\[])|,)?)|([^{}\\[\\],]+,?))";
+
+            var match = Regex.Match(json, pattern);
+            var beautified = new StringBuilder();
+            var indent = 0;
+            while (match.Success)
+            {
+                if (match.Groups[3].Length > 0)
+                    indent--;
+
+                beautified.AppendLine(
+                    new string(' ', indent * indentWidth) +
+                    (match.Groups[4].Length > 0
+                        ? match.Groups[4].Value + " " + match.Groups[5].Value
+                        : (match.Groups[7].Length > 0 ? match.Groups[7].Value : match.Value))
+                );
+
+                if (match.Groups[2].Length > 0 || match.Groups[6].Length > 0)
+                    indent++;
+
+                match = match.NextMatch();
+            }
+
+            return beautified.ToString();
+        }
     }
 }
